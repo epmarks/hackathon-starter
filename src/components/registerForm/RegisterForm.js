@@ -30,6 +30,7 @@ class RegisterForm extends React.Component {
         <form id="register-form" onSubmit={this.handleRegister}>
           <label htmlFor="username">Username </label>
           <input
+            id="username"
             type="text"
             name="username"
             placeholder="Enter Username"
@@ -39,6 +40,7 @@ class RegisterForm extends React.Component {
           />
           <label htmlFor="displayName">Display name </label>
           <input
+            id="displayName"
             type="text"
             name="displayName"
             placeholder="Enter display name"
@@ -49,6 +51,7 @@ class RegisterForm extends React.Component {
 
           <label htmlFor="password">Password </label>
           <input
+            id="password"
             type="password"
             name="password"
             placeholder="Enter password"
@@ -58,6 +61,7 @@ class RegisterForm extends React.Component {
 
           <label htmlFor="confirmPass">Confirm Password </label>
           <input
+            id="confirmPass"
             type="password"
             name="confirmPass"
             placeholder="Confirm password"
@@ -65,11 +69,16 @@ class RegisterForm extends React.Component {
             onChange={this.handleRegisterChange}
           />
 
-          <button type="submit">Register</button>
+          <button className="reg-btn" type="submit">
+            Register
+          </button>
+          <span>
+            Already have an account? Login <a href="#">here</a>
+          </span>
         </form>
       </div>
     );
   }
 }
 
-export default withAsyncAction("auth", "register")(RegisterForm);
+export default RegisterForm;
