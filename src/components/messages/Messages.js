@@ -64,11 +64,6 @@ class Messages extends React.Component {
             value={this.state.message}
           />
           <button onClick={this.newMessageHandler}> Send Message </button>
-
-          <Button color="red" onClick={this.newMessageHandler}>
-            <Icon name="heart" />
-            Like
-          </Button>
         </div>
       </div>
     );
