@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../redux/HOCs";
 import "./LoginForm.css";
@@ -28,8 +28,9 @@ class LoginForm extends React.Component {
     return (
       <div className="LoginForm">
         <form id="login-form" onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username</label>
+          <label htmlFor="username">Username </label>
           <input
+            id="unm"
             type="text"
             name="username"
             placeholder="Enter Username"
@@ -37,8 +38,10 @@ class LoginForm extends React.Component {
             required
             onChange={this.handleChange}
           />
-          <label htmlFor="password">Password</label>
+          <br />
+          <label htmlFor="password">Password </label>
           <input
+            id="pwd"
             type="password"
             name="password"
             placeholder="Enter Password"
@@ -49,18 +52,11 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
-
-          <p>New to Kwitter? Register Now!</p>
-          {/* <Link to="registerForm/RegisterForm"> */}
-          <button
-            type="submit"
-            onClick="registerForm/RegisterForm"
-            disabled={loading}
-          >
-            Register
-          </button>
-          {/* </Link> */}
+          <br />
+          <br />
+          <span>New to Kwitter? Register Now!</span>
         </form>
+        <RegisterForm />
 
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}

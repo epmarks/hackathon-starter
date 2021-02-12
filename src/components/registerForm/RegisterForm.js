@@ -1,26 +1,57 @@
 import React from "react";
-import { Link, ReactRouter } from "react-router-dom";
-import Spinner from "react-spinkit";
+import { Link } from "react-router-dom";
+
 import { withAsyncAction } from "../../redux/HOCs";
 import LoginForm from "../loginForm/LoginForm";
+import "./registerForm.css";
 
 class RegisterForm extends React.Component {
   constructor(props) {
     super(props);
-    this.sate = {
+    this.state = {
       username: "",
       displayName: "",
       password: "",
       confirmPass: "",
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-  //   handleRegister = (e) => {
-  //     e.preventDefault();
-  //     this.props.register(this.state);
-  //   };
+  usernamehandler = (event) => {
+    this.setState({
+      username: event.target.value,
+    });
+  };
 
-  handleRegisterChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  displayhandler = (event) => {
+    this.setState({
+      displayName: event.target.value,
+    });
+  };
+
+  passwordhandler = (event) => {
+    this.setState({
+      password: event.target.value,
+    });
+  };
+
+  confirmpasshandler = (event) => {
+    this.setState({
+      confirmPass: event.target.value,
+    });
+  };
+
+  handleSubmit = (event) => {
+    alert(
+      `${this.state.displayName} Congratulations, You've registered Successfully !`
+    );
+    console.log(this.state);
+    this.setState({
+      username: "",
+      displayName: "",
+      password: "",
+      confirmPass: "",
+    });
+    event.preventDefault();
   };
 
   render() {
@@ -28,7 +59,8 @@ class RegisterForm extends React.Component {
 
     return (
       <div className="RegisterForm">
-        <form id="register-form" onSubmit={this.handleRegister}>
+        <br />
+        <form id="register-form" onSubmit={this.handleSubmit}>
           <label htmlFor="username">Username </label>
           <input
             id="username"
@@ -37,46 +69,44 @@ class RegisterForm extends React.Component {
             placeholder="Enter Username"
             autoFocus
             required
-            onChange={this.handleRegisterChange}
+            onChange={this.usernamehandler}
           />
-          <label htmlFor="displayName">Display name </label>
+          <br />
+          <label htmlFor="displayName">Display Name </label>
           <input
             id="displayName"
             type="text"
             name="displayName"
-            placeholder="Enter display name"
+            placeholder="Enter Display Name"
             autoFocus
             required
-            onChange={this.handleRegisterChange}
+            onChange={this.displayhandler}
           />
-
+          <br />
           <label htmlFor="password">Password </label>
           <input
             id="password"
             type="password"
             name="password"
-            placeholder="Enter password"
+            placeholder="Enter Password"
             required
-            onChange={this.handleRegisterChange}
+            onChange={this.passwordhandler}
           />
-
+          <br />
           <label htmlFor="confirmPass">Confirm Password </label>
           <input
             id="confirmPass"
             type="password"
             name="confirmPass"
-            placeholder="Confirm password"
+            placeholder="Confirm Password"
             required
-            onChange={this.handleRegisterChange}
+            onChange={this.confirmpasshandler}
           />
-
-          <button className="reg-btn" type="submit">
+          <br />
+          <button id="reg-btn" className="reg-btn" type="submit">
             Register
           </button>
-          <span>
-            Already have an account? Login{" "}
-            <a href="../loginForm/LoginForm.js">here</a>
-          </span>
+          <br />
         </form>
       </div>
     );
