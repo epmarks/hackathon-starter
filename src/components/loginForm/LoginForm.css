@@ -1,5 +1,10 @@
 #login-form {
-  display: flex;
-  flex-direction: column;
   max-width: 20em;
+  display: inline;
+}
+#unm {
+  margin-left: 13px;
+}
+#pwd {
+  margin-left: 15px;
 }
