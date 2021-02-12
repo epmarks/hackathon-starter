@@ -44,12 +44,20 @@ class LoginForm extends React.Component {
           <button type="submit" disabled={loading}>
             Login
           </button>
+          
+          
+          <p>New to Kwitter? Register Now!</p>
+          <button>Register</button>
         </form>
+
+        
         {loading && <Spinner name="circle" color="blue" />}
         {error && <p style={{ color: "red" }}>{error.message}</p>}
       </div>
-    );
+      );
   }
 }
+
+
 
 export default withAsyncAction("auth", "login")(LoginForm);
