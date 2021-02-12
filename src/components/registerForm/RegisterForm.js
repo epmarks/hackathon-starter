@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, ReactRouter } from "react-router-dom";
 import Spinner from "react-spinkit";
 import { withAsyncAction } from "../../redux/HOCs";
 import LoginForm from "../loginForm/LoginForm";
@@ -13,10 +14,10 @@ class RegisterForm extends React.Component {
       confirmPass: "",
     };
   }
-  handleRegister = (e) => {
-    e.preventDefault();
-    this.props.register(this.state);
-  };
+  //   handleRegister = (e) => {
+  //     e.preventDefault();
+  //     this.props.register(this.state);
+  //   };
 
   handleRegisterChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
@@ -73,7 +74,8 @@ class RegisterForm extends React.Component {
             Register
           </button>
           <span>
-            Already have an account? Login <a href="#">here</a>
+            Already have an account? Login{" "}
+            <a href="../loginForm/LoginForm.js">here</a>
           </span>
         </form>
       </div>
